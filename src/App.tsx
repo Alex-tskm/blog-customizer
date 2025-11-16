@@ -41,6 +41,7 @@ export const App = () => {
 	// Обработчик нажатия "Сбросить"
 	const handleReset = () => {
 		setTempStyles(defaultArticleState);
+		setActiveStyles(defaultArticleState); // Применяем стили к странице
 	};
 
 	return (
