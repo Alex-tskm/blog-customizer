@@ -8,6 +8,7 @@ import { Text } from 'src/ui/text';
 import { useOutsideClickClose } from 'src/ui/select/hooks/useOutsideClickClose';
 
 import styles from './ArticleParamsForm.module.scss';
+import clsx from 'clsx';
 
 import {
 	fontFamilyOptions,
@@ -44,7 +45,7 @@ export const ArticleParamsForm = ({
 		isOpen,
 		rootRef: panelRef,
 		onClose: () => {
-			console.log('Панель закрыта по клику вне');
+			//			console.log('Панель закрыта по клику вне');
 		},
 		onChange: setIsOpen,
 	});
@@ -87,10 +88,9 @@ export const ArticleParamsForm = ({
 			<ArrowButton isOpen={isOpen} onClick={togglePanel} />
 			<aside
 				ref={panelRef}
-				className={`
-          ${styles.container}
-          ${isOpen ? styles.container_open : ''}
-        `}
+				className={clsx(styles.container, {
+					[styles.container_open]: isOpen,
+				})}
 				aria-hidden={!isOpen}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.formContent}>
